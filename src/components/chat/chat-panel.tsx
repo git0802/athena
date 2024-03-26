@@ -11,6 +11,7 @@ import type { AI } from '@/lib/chat/actions'
 import { nanoid } from 'nanoid'
 // import { UserMessage } from './stocks/message'
 
+
 export interface ChatPanelProps {
   id?: string
   title?: string
@@ -19,7 +20,7 @@ export interface ChatPanelProps {
 }
 
 export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
-  const [aiState] = useAIState()
+  const [aiState, setAIState] = useAIState()
   const [messages, setMessages] = useUIState<typeof AI>()
   const { submitUserMessage } = useActions()
   const [shareDialogOpen, setShareDialogOpen] = React.useState(false)
